@@ -1,0 +1,17 @@
+.SearchResults {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.SearchResults-title {
+    margin-top: .5rem;
+    text-align: center ;
+    font-size: 2rem;
+}
+
+.SearchResults-title span {
+    color: rgb(41, 65, 202);
+    font-style: italic;
+}

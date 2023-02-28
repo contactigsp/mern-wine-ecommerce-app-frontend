@@ -1,0 +1,12 @@
+.Profile {
+    margin: 1rem;
+}
+
+.Profile-button {
+    width: 100%;
+    background-color: rgb(46, 194, 135);
+    color: #fff;
+    border-style: none;
+    padding: 0.5rem;
+    cursor: pointer;
+}

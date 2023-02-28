@@ -1,0 +1,297 @@
+* {
+  /* border: 0.5px solid red; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+/* .local-bootstrap { */
+/* @import "~bootstrap/dist/css/bootstrap.min.css"; */
+/* @import "~bootstrap/css/bootstrap"; */
+/* } */
+
+a,
+li {
+  color: #333;
+  /* transition: all 0.5s ease; */
+  cursor: pointer;
+}
+
+.Navbar li:not(.logo):hover > *,
+.Navbar li:not(.logo):hover,
+.Navbar a:not(.logo):hover > *,
+/* .Navbar .shopping-cart-count-container:hover, */
+.Navbar .checkBtn:hover {
+  /* background-color: rgb(114, 60, 60); */
+  color: deepskyblue;
+  user-select: none;
+}
+
+
+
+
+
+
+.Navbar-dropDown-categories ul,
+.Navbar-dropDown-wines ul{
+  position: absolute;
+  left: 5;
+  background-color: rgb(77, 17, 17);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  padding: 0 1rem;
+}
+
+.Navbar-dropDown-categories:hover a,
+.Navbar-dropDown-wines:hover a{
+  padding: 10px;
+  background-color: transparent;
+}
+
+
+.Navbar-dropDown-categories li,
+.Navbar-dropDown-wines li {
+  /* border-top: 1px solid rgba(255, 255, 255, 0.1); */
+  color: #fff;
+  width: 100%;
+}
+
+.Navbar-dropDown-categories > ul li,
+.Navbar-dropDown-wines > ul li{
+  display: none;
+}
+
+.Navbar-dropDown-categories:hover ul li,
+.Navbar-dropDown-wines:hover ul li{
+  display: initial;
+}
+
+
+
+
+
+
+
+
+
+
+#login-link:active {
+  color: aqua;
+}
+
+.checkBox-container {
+  display: none;
+  position: relative;
+  margin: 1.2rem 1.7rem 0 0;
+}
+
+.checkBtn {
+  cursor: pointer;
+  position: absolute;
+}
+
+#toggler {
+  visibility: hidden;
+  user-select: none;
+}
+
+.Navbar {
+  display: flex;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 3;
+  /* padding-left: 1rem; */
+}
+
+.Navbar-main {
+  width: 100%;
+  display: flex;
+  margin: 0.5rem 0.5rem 0 0;
+}
+
+.Navbar-main ul {
+  display: flex;
+}
+
+.Navbar-main li:not(.logo) {
+  padding: 10px;
+}
+
+.Navbar-main-left {
+  flex-grow: 1;
+  margin-left: 1rem;
+}
+
+.Navbar-main-left ul {
+  margin-top: 1px;
+}
+
+.Navbar-main-center {
+  flex-grow: 1;
+}
+
+.Navbar-main-right {
+  display: flex;
+}
+
+.Navbar-main-right ul:first-child {
+  margin-top: 3px;
+}
+
+.shopping-cart {
+  /* align-self: center; */
+  margin: 1.2rem 2.3rem 0 0;
+  cursor: pointer;
+}
+
+.shopping-cart-count-container {
+  position: relative;
+}
+
+svg {
+  display: flex;
+}
+
+.shopping-cart-count {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  border-radius: 50%;
+  background-color: deepskyblue;
+  color: #fff;
+}
+
+.logo {
+  font-size: 30px;
+  letter-spacing: 5px;
+  padding: 0px 10px 10px 10px;
+}
+
+.Navbar-main-center ul a .logo:hover {
+  color: #000;
+}
+
+.greetingForUser {
+  cursor: default;
+}
+
+@media only screen and (max-width: 583px) {
+
+  .Navbar li:hover > *,
+  .Navbar li:hover,
+  .Navbar a:hover > * {
+    background-color: rgb(114, 60, 60);
+    color: #fff;
+  }
+
+  .Navbar li:not(.logo):hover > *,
+  .Navbar li:not(.logo):hover,
+  .Navbar a:not(.logo):hover > * {
+    color: #fff;
+    user-select: none;
+  }
+
+  .Navbar-main {
+    flex-direction: column;
+  }
+
+  .Navbar-main-center {
+    order: -1;
+    background-color: #fff;
+  }
+
+  .Navbar-main-center ul a li:hover {
+    background-color: #fff;
+  }
+
+  .Navbar-main-center ul {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .Navbar-main-left,
+  .Navbar-main-right,
+  .Navbar-main-left ul,
+  .Navbar-main-right ul {
+    flex-direction: column;
+  }
+
+  .Navbar-main-left ul li,
+  .Navbar-main-right ul li {
+    text-align: center;
+  }
+
+  .checkBox-container {
+    display: block;
+  }
+
+  .Navbar-main-left,
+  .Navbar-main-right {
+    background-color: rgb(77, 17, 17);
+    position: fixed;
+    /* height: 100vh; */
+    margin: 1.8rem 0;
+    padding: 0;
+    width: 100vw;
+    transition: all 0.7s ease;
+    top: -120%;
+    z-index: 10;
+  }
+
+  .show-Navbar-main-left {
+    top: 110px;
+    height: 100vh;
+  }
+
+  .show-Navbar-main-right {
+    top: 25.7px;
+  }
+
+  .Navbar-main-right ul li,
+  .Navbar-main-right ul li a,
+  .Navbar-main-left ul li,
+  .Navbar-main-left ul li a {
+    color: #fff;
+  }
+
+  .greetingForUser {
+    display: none;
+  }
+
+
+
+
+
+
+
+
+
+
+
+  .Navbar-dropDown-categories ul,
+  .Navbar-dropDown-wines ul{
+    left: 0;
+  }
+
+  .Navbar-dropDown-categories li,
+  .Navbar-dropDown-wines li {
+    border-top: none;
+    width: 100%;
+  }
+  
+  .Navbar-dropDown-categories li,
+  .Navbar-dropDown-wines li {
+    border-top: none;
+  }
+
+}

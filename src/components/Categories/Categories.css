@@ -1,0 +1,19 @@
+* {
+  /* border: red solid 0.1px; */
+}
+
+.Categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  margin: 2rem 5rem;
+
+}
+
+.Categories-title {
+  max-width: 100%;
+  font-size: 1.2rem;
+  margin: 1rem 5rem;
+  text-align: center;
+}

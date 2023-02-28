@@ -1,0 +1,25 @@
+.CheckoutSteps {
+}
+
+.CheckoutSteps ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.CheckoutSteps li,
+.CheckoutSteps a li {
+  margin: 2rem 1rem 0 1rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.CheckoutSteps a li[isStep="true"] {
+  /* margin: 2rem 1rem 0 1rem; */
+  color: #999;
+}
+
+.CheckoutSteps li[signin="true"] {
+  /* margin: 2rem 1rem 0 1rem; */
+  cursor: default;
+}

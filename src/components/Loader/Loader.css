@@ -1,0 +1,17 @@
+.Loader-panel {
+  position: absolute;
+  z-index: 100;
+  background-color: #00000077;
+  color: #fff;
+  height: 200%;
+  width: 100vw;
+}
+
+.Loading {
+    /* position: absolute; */
+  /* color: #fff; */
+  margin: 20.5rem 10%;
+  /* color: #a49c9c; */
+  /* color: #999; */
+  color: #000;
+}
