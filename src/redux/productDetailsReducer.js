@@ -6,7 +6,7 @@ export const getWineDetails = createAsyncThunk(
   "wineDetails/getWineDetails",
   async (id) => {
     try {
-      const response = await axios.get(`${ URL }/api/v1/product/${id}`);
+      const response = await axios.get(`${URL}/api/v1/product/${id}`);
       return response.data;
     } catch (error) {
       console.log(error);

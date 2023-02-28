@@ -11,13 +11,16 @@ export const getOrderDetails = createAsyncThunk(
       // setTimeout(() => console.log(orderInfo.orderId, "orderInfo.orderId from REDUCER"), 3000);
       // setTimeout(() => console.log(orderInfo.user.token, "orderInfo.user.token from REDUCER"), 4000);
 
-      const response = await fetch(`${ URL }/api/v1/orders/${orderInfo.orderId}`, {
-        method: "GET",
-        headers: {
-          authorization: `Bearer ${orderInfo.user.token}`,
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `${URL}/api/v1/orders/${orderInfo.orderId}`,
+        {
+          method: "GET",
+          headers: {
+            authorization: `Bearer ${orderInfo.user.token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       const json = await response.json();
 

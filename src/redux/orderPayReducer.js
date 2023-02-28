@@ -11,7 +11,7 @@ export const getOrderPay = createAsyncThunk(
       // setTimeout(() => console.log(orderInfo.user.token, "orderInfo.user.token from REDUCER"), 4000);
 
       const response = await fetch(
-        `${ URL }/api/v1/orders/${paymentResult.data.orderId}/updateOrderToPaid`,
+        `${URL}/api/v1/orders/${paymentResult.data.orderId}/updateOrderToPaid`,
         {
           method: "POST",
           body: JSON.stringify(paymentResult.data),

@@ -6,7 +6,7 @@ export const getMyOrders = createAsyncThunk(
   "myOrders/getMyOrders",
   async (userInfo) => {
     try {
-      const response = await fetch(`${ URL }/api/v1/myorders`, {
+      const response = await fetch(`${URL}/api/v1/myorders`, {
         method: "GET",
         headers: {
           authorization: `Bearer ${userInfo.token}`,

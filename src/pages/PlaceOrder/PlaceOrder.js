@@ -70,7 +70,7 @@ function PlaceOrder() {
         email: user.email,
       };
 
-      const response = await fetch(`${ URL }/api/v1/orders`, {
+      const response = await fetch(`${URL}/api/v1/orders`, {
         method: "POST",
         body: JSON.stringify(orderDetails),
         headers: {
