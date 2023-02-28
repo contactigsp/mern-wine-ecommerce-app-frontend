@@ -17,7 +17,6 @@ import SearchResults from "./pages/SearchResults/SearchResults";
 export const URL = process.env.REACT_APP_SERVER_URL;
 // { URL }
 
-
 const Layout = () => {
   return (
     <div className="app">
@@ -30,51 +29,51 @@ const Layout = () => {
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: `${URL}/`,
     element: <Layout />,
     children: [
       {
-        path: "/",
+        path: `${URL}/`,
         element: <Home />,
       },
       {
-        path: "/product/:id",
+        path: `${URL}/product/:id`,
         element: <ProductDetails />,
       },
       {
-        path: "/signup",
+        path: `${URL}/signup`,
         element: <Signup />,
       },
       {
-        path: "/login",
+        path: `${URL}/login`,
         element: <Login />,
       },
       {
-        path: "/shipping",
+        path: `${URL}/shipping`,
         element: <Shipping />,
       },
       {
-        path: "/profile",
+        path: `${URL}/profile`,
         element: <Profile />,
       },
       {
-        path: "/payment",
+        path: `${URL}/payment`,
         element: <Payment />,
       },
       {
-        path: "/placeorder",
+        path: `${URL}/placeorder`,
         element: <PlaceOrder />,
       },
       {
-        path: "/orders/:id",
+        path: `${URL}/orders/:id`,
         element: <OrderDetails />,
       },
       {
-        path: "/products",
+        path: `${URL}/products`,
         element: <SearchResults />,
       },
       {
-        path: "/products/:category",
+        path: `${URL}/products/:category`,
         element: <SearchResults />,
       },
     ],
