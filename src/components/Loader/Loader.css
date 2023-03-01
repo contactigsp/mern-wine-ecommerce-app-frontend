@@ -11,11 +11,12 @@
   /* color: #fff; */
   /* height: 200%; */
   width: 100vw;
-  height: 200vh;
+  height: 500vh;
 }
 
 .loading {
   width: 8rem ;
   position: absolute;
+  top: 200px ;
   /* position: sticky; */
 }

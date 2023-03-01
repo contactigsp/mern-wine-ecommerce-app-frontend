@@ -52,16 +52,13 @@ function Home() {
   //   });
   // });
 
-  return wineList ? (
+  return (
     <div className="home">
       <Slider />
       <Categories />
-      <WineList wineList={result} />
-
+      {!shouldRequest.current ? <WineList wineList={result} /> : <Loader />}
       <News />
     </div>
-  ) : (
-    <Loader />
   );
 }
 

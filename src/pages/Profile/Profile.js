@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Profile.css";
 import { getMyOrders } from "../../redux/myListOrdersReducer";
@@ -16,10 +16,15 @@ function Profile() {
     navigate(`/orders/${id}`);
   };
 
+  const shouldRequest = useRef(true); //this hook has a "current" property that persists it's value throughout the lifetime of the component. So, even on the "mount" and "unmount" it will retain it's value.
+
   useEffect(() => {
     if (userInfo) {
-      dispatch(getMyOrders(userInfo));
-      console.log(userInfo);
+      if (shouldRequest.current) {
+        shouldRequest.current = false;
+        dispatch(getMyOrders(userInfo));
+        console.log(userInfo);
+      }
     } else {
       navigate(`/login?redirect=profile`); // Change this line navigateLog(redirect) inside that useEffect in LoginScreen to this one: "navigateLog(`/${redirect}`);      " In your case it's redirecting to /login/shipping instead of /shipping, cause it's like you are calling navigateLog("shipping") since redirect is equal to "shipping", so it's used as a relative path. Which means it takes into account your current url, which is in your case /login.
     }
@@ -62,7 +67,7 @@ function Profile() {
 
   const rows = myOrders;
 
-  return myOrders ? (
+  return !shouldRequest.current ? (
     <div style={{ height: 500, width: "100%" }}>
       <DataGrid
         rows={rows}

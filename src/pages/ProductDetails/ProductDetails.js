@@ -39,14 +39,17 @@ function ProductDetails() {
 
   const shouldRequest = useRef(true);
 
+  const wine = useSelector(selectWineDetails);
+  const [newWineList, setNewWineList] = useState();
+
   useEffect(() => {
     if (shouldRequest.current) {
       shouldRequest.current = false;
       dispatch(getWineDetails(id));
+      setTimeout(() => setNewWineList(wine))
     }
-  }, [dispatch, id]);
+  }, [dispatch, id, wine]);
 
-  const wine = useSelector(selectWineDetails);
   let counter = document.querySelector(".ProductDetails-quantity-counter");
 
   // ===================== ADD TO CART =====================
@@ -80,7 +83,7 @@ function ProductDetails() {
   // =================== CART OPEN/CLOSE ===================
 
   // ======================= RETURN ========================
-  return wine ? (
+  return newWineList ? (
     <div className="ProductDetails">
       <div className="ProductDetails-image-block">
         <div className="ProductDetails-image-container">

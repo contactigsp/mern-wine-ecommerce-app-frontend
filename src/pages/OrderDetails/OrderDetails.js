@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import "./OrderDetails.css";
@@ -38,12 +38,14 @@ function OrderDetails() {
   // const shouldRequest = useRef(true); //this hook has a "current" property that persists it's value throughout the lifetime of the component. So, even on the "mount" and "unmount" it will retain it's value.
 
   const { isPaid } = selectOrderPay;
-
+  const shouldRequest = useRef(true); //this hook has a "current" property that persists it's value throughout the lifetime of the component. So, even on the "mount" and "unmount" it will retain it's value.
   useEffect(() => {
     if (user || isPaid || isSuccessPay) {
+      if (shouldRequest.current) {
       // if (shouldRequest.current) {
-      // shouldRequest.current = false;
-      dispatch(getOrderDetails(orderInfo));
+        shouldRequest.current = false;
+        dispatch(getOrderDetails(orderInfo));
+      }
       setIsSuccessPay(false);
       // }
     }
@@ -102,7 +104,7 @@ function OrderDetails() {
 
   //   ========================== RETURN ==========================
 
-  return order ? (
+  return !shouldRequest.current ? (
     <>
       <div className="OrderDetails">
         <div className="OrderDetails-details">
