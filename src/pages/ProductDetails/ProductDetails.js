@@ -83,7 +83,7 @@ function ProductDetails() {
     <div className="ProductDetails">
       <div className="ProductDetails-image-block">
         <div className="ProductDetails-image-container">
-          <img className="ProductDetails-image" src={wine.image} alt=""></img>
+          <img className={`ProductDetails-image-${wine.category}`} src={wine.image} alt=""></img>
         </div>
       </div>
 

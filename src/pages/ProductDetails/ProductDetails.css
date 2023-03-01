@@ -25,14 +25,37 @@
   margin: 0.2rem 1.5rem;
   width: 15rem;
   height: 22rem;
+  display: flex;
+  align-items: center;
 }
 
-.ProductDetails-image {
+/* .ProductDetails-image {
   width: 100%;
   height: 100%;
   border-radius: 10px;
   object-fit: cover;
-  /* cursor: pointer; */
+} */
+
+.ProductDetails-image-gift,
+.ProductDetails-image-winebox,
+.ProductDetails-image-single {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.ProductDetails-image-combo{
+
+}
+
+.ProductDetails-image-kit {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  cursor: pointer;
 }
 
 .ProductDetails-info {
