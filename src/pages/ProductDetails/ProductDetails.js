@@ -35,16 +35,15 @@ function ProductDetails() {
   //   fetchWine();
   // }, []);
 
-  const wine = useSelector(selectWineDetails);
-
+  
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
-      dispatch(getWineDetails(id));
+    dispatch(getWineDetails(id));
     // }
   }, [dispatch, id]);
-
-  let counter = document.querySelector(".ProductDetails-quantity-counter");
+  
+  const wine = useSelector(selectWineDetails);
 
   // ===================== ADD TO CART =====================
   const [alertQuantity, setAlertQuantity] = useState(false);
@@ -62,6 +61,7 @@ function ProductDetails() {
   // ====================== QUANTITY ======================
 
   const handleSumOne = () => {
+    let counter = document.querySelector(".ProductDetails-quantity-counter");
     counter.innerHTML++;
     setQuantity(counter.innerHTML * 1);
     // console.log(counter.innerHTML);
@@ -69,6 +69,7 @@ function ProductDetails() {
   };
 
   const handleSubOne = () => {
+    let counter = document.querySelector(".ProductDetails-quantity-counter");
     counter.innerHTML > 0 && counter.innerHTML--;
     setQuantity(counter.innerHTML * 1);
     // console.log(counter.innerHTML);
