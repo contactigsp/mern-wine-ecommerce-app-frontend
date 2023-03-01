@@ -10,6 +10,7 @@ import {
   toggleIsOpen,
 } from "../../redux/cartReducer";
 import { useNavigate } from "react-router-dom";
+import CloseIcon from "@mui/icons-material/Close";
 
 function Cart() {
   const isOpen = useSelector((state) => state.cart.isOpen);
@@ -40,7 +41,7 @@ function Cart() {
   const handleCheckOut = () => {
     if (user) {
       navigate("/shipping");
-      dispatch(toggleIsOpen())
+      dispatch(toggleIsOpen());
     } else {
       navigate(`/login?redirect=shipping`);
     }
@@ -64,7 +65,15 @@ function Cart() {
   return (
     <div className={isOpen ? "Cart" : "Cart show-Cart"}>
       {/* // <div className="Cart"> */}
-      <h1 className="Cart-title">Products in your cart</h1>
+
+      <div className="Cart-header">
+        <h1 className="Cart-title">Products in your cart</h1>
+        <CloseIcon
+          sx={{ color: "rgb(177, 49, 49)", mt: 0.5, cursor: "pointer" }}
+          onClick={() => dispatch(toggleIsOpen())}
+        />
+      </div>
+
       {products.map((item) => (
         <div className="Cart-item" key={item._id}>
           <img className="Cart-item-image" src={item.image} alt="" />

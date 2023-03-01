@@ -15,17 +15,33 @@ function Navbar() {
   const [isChecked, setIsChecked] = useLocalStorageState("isChecked", false);
   const dispatch = useDispatch();
 
+  // ========================= GRAB USER'S NAME =========================
+  const currentUser = useSelector((state) => state.auth.user);
+  // ========================= GRAB URL PARAMS =========================
+
   const handleIsChecked = () => {
     setIsChecked(!isChecked);
+
     const navbarMainLeft = document.querySelector(".Navbar-main-left");
     const navbarMainRight = document.querySelector(".Navbar-main-right");
 
     if (isChecked) {
-      navbarMainLeft.classList.remove("show-Navbar-main-left");
-      navbarMainRight.classList.remove("show-Navbar-main-right");
+      if (currentUser) {
+        navbarMainLeft.classList.remove("show-Navbar-main-left-loggedIn");
+        navbarMainLeft.classList.remove("show-Navbar-main-left");
+        navbarMainRight.classList.remove("show-Navbar-main-right");
+      } else {
+        navbarMainLeft.classList.remove("show-Navbar-main-left");
+        navbarMainRight.classList.remove("show-Navbar-main-right");
+      }
     } else {
-      navbarMainLeft.classList.add("show-Navbar-main-left");
-      navbarMainRight.classList.add("show-Navbar-main-right");
+      if (currentUser) {
+        navbarMainLeft.classList.add("show-Navbar-main-left-loggedIn");
+        navbarMainRight.classList.add("show-Navbar-main-right");
+      } else {
+        navbarMainLeft.classList.add("show-Navbar-main-left");
+        navbarMainRight.classList.add("show-Navbar-main-right");
+      }
     }
     // console.log("hello from custom hook!");
     // console.log(isChecked);
@@ -49,10 +65,6 @@ function Navbar() {
     runLogout();
   };
 
-  // ========================= GRAB USER'S NAME =========================
-  const currentUser = useSelector((state) => state.auth.user);
-  // ========================= GRAB URL PARAMS =========================
-
   const navigate = useNavigate();
 
   const handleClickColor = (keySearch) => {
@@ -60,6 +72,7 @@ function Navbar() {
     // console.log(window.location.pathname)
     // console.log(location.search, "from location.search")
     // console.log(location.pathname, "from location.pathname")
+    handleIsChecked();
     navigate(`/products?color=${keySearch}`);
   };
 
@@ -73,26 +86,46 @@ function Navbar() {
       <div className="Navbar-main">
         <div className="Navbar-main-left">
           <ul className="Navbar-dropDownMenu">
-            <li className="Navbar-dropDown-wines" value="Red">
+            <li className="Navbar-dropDown-wines">
               Wines
               <ul>
-                <li onClick={() => handleClickColor("Red")}>Red</li>
-                <li onClick={() => handleClickColor("White")}>White</li>
-                <li onClick={() => handleClickColor("Rose")}>Rose</li>
-                <li onClick={() => handleClickColor("Sparkling")}>Sparkling</li>
-                {/* <a href="" data-attribute="Red"><li onClick={(e) => console.log(e.value) }>Red</li></a>
-                <a href="/"><li>White</li></a>
-                <a href="/"><li>Rose</li></a>
-                <a href="/"><li>Sparkling</li></a> */}
+                <li>
+                  {" "}
+                  <p onClick={() => handleClickColor("Red")}>Red</p>
+                </li>
+                <li>
+                  {" "}
+                  <p onClick={() => handleClickColor("White")}>White</p>
+                </li>
+                <li>
+                  {" "}
+                  <p onClick={() => handleClickColor("Rose")}>Rose</p>
+                </li>
+                <li>
+                  {" "}
+                  <p onClick={() => handleClickColor("Sparkling")}>Sparkling</p>
+                </li>
               </ul>
             </li>
             <li className="Navbar-dropDown-categories">
               Categories
               <ul>
-                <li onClick={() => handleClickCategory("gifts")}>Gifts</li>
-                <li onClick={() => handleClickCategory("kits")}>Kits</li>
-                <li onClick={() => handleClickCategory("combos")}>Combos</li>
-                <li onClick={() => handleClickCategory("wood")}>Wooden Box</li>
+                <li>
+                  {" "}
+                  <p onClick={() => handleClickCategory("gifts")}>Gifts</p>
+                </li>
+                <li>
+                  {" "}
+                  <p onClick={() => handleClickCategory("kits")}>Kits</p>
+                </li>
+                <li>
+                  {" "}
+                  <p onClick={() => handleClickCategory("combos")}>Combos</p>
+                </li>
+                <li>
+                  {" "}
+                  <p onClick={() => handleClickCategory("wood")}>Wooden Box</p>
+                </li>
               </ul>
             </li>
           </ul>
@@ -116,7 +149,7 @@ function Navbar() {
                   </p>
                 </li>
                 <li>
-                  <p onClick={handleLogout}>Logout</p>{" "}
+                  <p onClick={handleLogout}>Logout</p>
                 </li>
               </>
             ) : (

@@ -29,13 +29,8 @@ li {
   user-select: none;
 }
 
-
-
-
-
-
 .Navbar-dropDown-categories ul,
-.Navbar-dropDown-wines ul{
+.Navbar-dropDown-wines ul {
   position: absolute;
   left: 5;
   background-color: rgb(77, 17, 17);
@@ -46,11 +41,10 @@ li {
 }
 
 .Navbar-dropDown-categories:hover a,
-.Navbar-dropDown-wines:hover a{
+.Navbar-dropDown-wines:hover a {
   padding: 10px;
   background-color: transparent;
 }
-
 
 .Navbar-dropDown-categories li,
 .Navbar-dropDown-wines li {
@@ -60,23 +54,14 @@ li {
 }
 
 .Navbar-dropDown-categories > ul li,
-.Navbar-dropDown-wines > ul li{
+.Navbar-dropDown-wines > ul li {
   display: none;
 }
 
 .Navbar-dropDown-categories:hover ul li,
-.Navbar-dropDown-wines:hover ul li{
+.Navbar-dropDown-wines:hover ul li {
   display: initial;
 }
-
-
-
-
-
-
-
-
-
 
 #login-link:active {
   color: aqua;
@@ -186,7 +171,6 @@ svg {
 }
 
 @media only screen and (max-width: 583px) {
-
   .Navbar li:hover > *,
   .Navbar li:hover,
   .Navbar a:hover > * {
@@ -249,6 +233,11 @@ svg {
   }
 
   .show-Navbar-main-left {
+    top: 150px;
+    height: 100vh;
+  }
+
+  .show-Navbar-main-left-loggedIn {
     top: 110px;
     height: 100vh;
   }
@@ -268,18 +257,8 @@ svg {
     display: none;
   }
 
-
-
-
-
-
-
-
-
-
-
   .Navbar-dropDown-categories ul,
-  .Navbar-dropDown-wines ul{
+  .Navbar-dropDown-wines ul {
     left: 0;
   }
 
@@ -288,10 +267,9 @@ svg {
     border-top: none;
     width: 100%;
   }
-  
+
   .Navbar-dropDown-categories li,
   .Navbar-dropDown-wines li {
     border-top: none;
   }
-
 }
