@@ -17,6 +17,7 @@ function OrderDetails() {
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
   const navigate = useNavigate();
+  
   const { id } = useParams();
 
   useEffect(() => {
