@@ -38,16 +38,14 @@ function ProductDetails() {
   const wine = useSelector(selectWineDetails);
 
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(true);
+  const shouldRequest = useRef(true); //this hook has a "current" property that persists it's value throughout the lifetime of the component. So, even on the "mount" and "unmount" it will retain it's value.
 
   useEffect(() => {
-    if(isLoading) {
+    if (shouldRequest.current) {
+      shouldRequest.current = false;
       dispatch(getWineDetails(id));
-      if (wine._id === id) {
-        setIsLoading(false);
-      }
     }
-  }, [dispatch, id, isLoading, wine._id]);
+  }, [dispatch, id]);
 
   let counter = document.querySelector(".ProductDetails-quantity-counter");
 
@@ -82,7 +80,7 @@ function ProductDetails() {
   // =================== CART OPEN/CLOSE ===================
 
   // ======================= RETURN ========================
-  return !isLoading ? (
+  return wine._id === id ? (
     <div className="ProductDetails">
       <div className="ProductDetails-image-block">
         <div className="ProductDetails-image-container">
