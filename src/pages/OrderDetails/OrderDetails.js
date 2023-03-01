@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import "./OrderDetails.css";
@@ -7,7 +7,6 @@ import { getOrderDetails } from "../../redux/ordersReducer";
 import { getOrderPay } from "../../redux/orderPayReducer";
 import Loader from "../../components/Loader/Loader";
 import StripeCheckout from "react-stripe-checkout";
-import { selectOrderPay } from "../../redux/orderPayReducer";
 import { URL } from "../../App";
 
 function OrderDetails() {
@@ -15,6 +14,7 @@ function OrderDetails() {
   const order = useSelector(selectOrderDetails);
 
   const [isSuccessPay, setIsSuccessPay] = useState(false);
+  const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -35,16 +35,14 @@ function OrderDetails() {
     return { orderId: id, user };
   }, [id, user]);
 
-  const { isPaid } = selectOrderPay;
+  // const { isPaid } = selectOrderPay;
 
   useEffect(() => {
-    if (user || isPaid || isSuccessPay) {
-      // if (shouldRequest.current) {
+    if (user || isSuccessPay) {
       dispatch(getOrderDetails(orderInfo));
       setIsSuccessPay(false);
-      // }
     }
-  }, [dispatch, orderInfo, user, isPaid, isSuccessPay]);
+  }, [dispatch, orderInfo, user, isSuccessPay]);
 
   //   ========================== ADD DECIMAL ==========================
   const addDecimals = (num) => {
@@ -54,6 +52,7 @@ function OrderDetails() {
   // =========================== PAYPAL ===========================
   // Sends the data to Stripe and pay there
   const handlePayout = async (token, total) => {
+    setIsProcessingPayment(true);
     const response = await fetch(`${URL}/api/v1/orders/${id}`, {
       method: "POST",
       body: JSON.stringify({
@@ -72,6 +71,7 @@ function OrderDetails() {
     // console.log(response)
 
     if (!response.ok) {
+      setIsProcessingPayment(false);
       throw Error(json.error);
     }
 
@@ -94,13 +94,16 @@ function OrderDetails() {
       // updates the DB in MongoDB if Stripe pay is succeed
       dispatch(getOrderPay(paymentResult));
       setIsSuccessPay(true);
+      setIsProcessingPayment(false);
     }
   };
 
   //   ========================== RETURN ==========================
 
-  return orderInfo ? (
+  // this check is to make sure it doesn't render the previous order stored in redux while the new order isn't ready during dispatch execution.
+  return order._id === id ? (
     <>
+      {isProcessingPayment && <Loader />}
       <div className="OrderDetails">
         <div className="OrderDetails-details">
           <h2>Order Details</h2>

@@ -67,7 +67,7 @@ function Profile() {
 
   const rows = myOrders;
 
-  return !shouldRequest.current ? (
+  return userInfo ? (
     <div style={{ height: 500, width: "100%" }}>
       <DataGrid
         rows={rows}

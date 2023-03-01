@@ -56,7 +56,7 @@ function Home() {
     <div className="home">
       <Slider />
       <Categories />
-      {!shouldRequest.current ? <WineList wineList={result} /> : <Loader />}
+      {wineList ? <WineList wineList={result} /> : <Loader />}
       <News />
     </div>
   );

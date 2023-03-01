@@ -38,13 +38,10 @@ function ProductDetails() {
   const wine = useSelector(selectWineDetails);
 
   const dispatch = useDispatch();
-  const shouldRequest = useRef(true); //this hook has a "current" property that persists it's value throughout the lifetime of the component. So, even on the "mount" and "unmount" it will retain it's value.
 
   useEffect(() => {
-    if (shouldRequest.current) {
-      shouldRequest.current = false;
       dispatch(getWineDetails(id));
-    }
+    // }
   }, [dispatch, id]);
 
   let counter = document.querySelector(".ProductDetails-quantity-counter");
