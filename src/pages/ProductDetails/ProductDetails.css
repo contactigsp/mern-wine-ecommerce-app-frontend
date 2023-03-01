@@ -23,8 +23,8 @@
 .ProductDetails-image-container {
   /* cursor: pointer; */
   margin: 0.2rem 1.5rem;
-  width: 18rem;
-  height: 28rem;
+  width: 12rem;
+  height: 22rem;
 }
 
 .ProductDetails-image {
@@ -174,16 +174,7 @@
 }
 
 @media only screen and (max-width: 764px) {
-  .ProductDetails-image-container {
-    width: 18rem;
-  }
   .ProductDetails-image-block {
     margin: 0;
-  }
-}
-
-@media only screen and (max-width: 350px) {
-  .ProductDetails-image-container {
-    width: 12rem;
   }
 }

@@ -16,6 +16,7 @@
 .Cart-header {
   display: flex;
   justify-content: space-between;
+  
 }
 
 /* .Cart::-webkit-scrollbar {

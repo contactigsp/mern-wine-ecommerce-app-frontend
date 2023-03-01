@@ -91,11 +91,11 @@ function ProductDetails() {
         <h2 className="ProductDetails-info-title">{wine.title}</h2>
         <div className="ProductDetails-info-review">
           <ListItemIcon>
-            <StarIcon />
-            <StarIcon />
-            <StarIcon />
-            <StarIcon />
-            <StarHalfIcon />
+            <StarIcon sx={{color: "rgb(244, 244, 0)"}} />
+            <StarIcon sx={{color: "rgb(244, 244, 0)"}} />
+            <StarIcon sx={{color: "rgb(244, 244, 0)"}} />
+            <StarIcon sx={{color: "rgb(244, 244, 0)"}} />
+            <StarHalfIcon sx={{color: "rgb(244, 244, 0)"}} />
           </ListItemIcon>
           <p>Lorem ipsum dolor sit amet consectetur</p>
         </div>
@@ -103,15 +103,15 @@ function ProductDetails() {
         <div className="ProductDetails-ListItemIcon">
           <ListItemIcon>
             <div className="ProductDetails-ListItemIcon-item">
-              <WineBarIcon />
+              <WineBarIcon sx={{color: "rgb(139,0,0)"}} />
               <p>Lorem ipsum dolor</p>
             </div>
             <div className="ProductDetails-ListItemIcon-item">
-              <LocationOnIcon />
+              <LocationOnIcon sx={{color: "red"}}/>
               <p>Lorem ipsum dolor</p>
             </div>
             <div className="ProductDetails-ListItemIcon-item">
-              <AcUnitIcon />
+              <AcUnitIcon sx={{color: "lightskyblue"}} />
               <p>Lorem ipsum dolor</p>
             </div>
           </ListItemIcon>

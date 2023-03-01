@@ -69,7 +69,7 @@ function Cart() {
       <div className="Cart-header">
         <h1 className="Cart-title">Products in your cart</h1>
         <CloseIcon
-          sx={{ color: "rgb(177, 49, 49)", mt: 0.5, cursor: "pointer" }}
+          sx={{ color: "rgb(177, 49, 49)", mt: 0.5, ml: 1.5 ,cursor: "pointer" }}
           onClick={() => dispatch(toggleIsOpen())}
         />
       </div>
