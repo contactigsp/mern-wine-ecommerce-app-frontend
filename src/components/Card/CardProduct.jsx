@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./CardProduct.css";
 import { addToCart } from "../../redux/cartReducer";
 import { toggleIsOpen } from "../../redux/cartReducer";
+import { Link } from "react-router-dom";
 
 function CardProduct({ wine }) {
   // ===================== ADD TO CART =====================
@@ -17,13 +18,13 @@ function CardProduct({ wine }) {
   return (
     <div className="CardProduct">
       <div className="CardProduct-image-container">
-        <a href={`/product/${wine._id}`}>
+        <Link to={`/product/${wine._id}`}>
           <img
             className={`CardProduct-image-${wine.category}`}
             src={wine.image}
             alt={`cardProduct ${wine._id}`}
           />
-        </a>
+        </Link>
       </div>
       <div className="CardProduct-info">
         <h3 className="CardProduct-title">{wine.title}</h3>

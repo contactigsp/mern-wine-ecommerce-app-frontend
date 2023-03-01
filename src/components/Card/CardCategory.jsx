@@ -5,7 +5,7 @@ import "./CardCategory.css";
 function CardCategory({ image, id, name, slug }) {
   const navigate = useNavigate();
 
-  const handleClickCategory = (slug) => {
+  const handleClickCategory = () => {
     navigate(`/products/${slug}`);
   };
 
@@ -20,7 +20,7 @@ function CardCategory({ image, id, name, slug }) {
       <div className="CardCategory-button-container">
         <button
           className="CardCategory-button"
-          onClick={() => handleClickCategory(slug)}
+          onClick={handleClickCategory}
         >
           See more
         </button>

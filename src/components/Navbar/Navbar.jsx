@@ -2,10 +2,8 @@ import React from "react";
 import "./Navbar.css";
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-// import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cart from "./../Cart/Cart";
 import useLocalStorageState from "../../hooks/useLocalStorageState";
 import { useDispatch, useSelector } from "react-redux";
@@ -47,6 +45,7 @@ function Navbar() {
   const { runLogout } = useLogout();
 
   const handleLogout = () => {
+    handleIsChecked();
     runLogout();
   };
 
@@ -65,6 +64,7 @@ function Navbar() {
   };
 
   const handleClickCategory = (keySearch) => {
+    handleIsChecked();
     navigate(`/products/${keySearch}`);
   };
 
@@ -121,17 +121,17 @@ function Navbar() {
               </>
             ) : (
               <>
-                <a href="/login">
+                <Link to="/login" onClick={handleIsChecked}>
                   <li>Login</li>
-                </a>
-                <a href="/signup">
+                </Link>
+                <Link to="/signup" onClick={handleIsChecked}>
                   <li>Sign up</li>
-                </a>{" "}
+                </Link>{" "}
               </>
             )}
           </ul>
           <ul>
-            <Link to={"/profile"}>
+            <Link to={"/profile"} onClick={handleIsChecked}>
               <li>
                 <PersonIcon />
               </li>

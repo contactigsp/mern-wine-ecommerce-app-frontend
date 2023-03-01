@@ -1,5 +1,5 @@
 import "./App.css";
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, createHashRouter, Outlet, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home/Home";
 // import Products from "./pages/Products/Products";
 import Navbar from "./components/Navbar/Navbar";
@@ -27,6 +27,8 @@ const Layout = () => {
     </div>
   );
 };
+
+// createHashRouter
 
 const router = createBrowserRouter([
   {
