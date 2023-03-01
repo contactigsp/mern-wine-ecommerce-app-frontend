@@ -4,6 +4,7 @@ import "./Profile.css";
 import { getMyOrders } from "../../redux/myListOrdersReducer";
 import { DataGrid } from "@mui/x-data-grid";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../components/Loader/Loader";
 
 function Profile() {
   const dispatch = useDispatch();
@@ -61,7 +62,7 @@ function Profile() {
 
   const rows = myOrders;
 
-  return (
+  return myOrders ? (
     <div style={{ height: 500, width: "100%" }}>
       <DataGrid
         rows={rows}
@@ -73,6 +74,8 @@ function Profile() {
         sx={{ m: "2rem" }}
       />
     </div>
+  ) : (
+    <Loader />
   );
 }
 

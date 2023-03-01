@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 import CardProduct from "../../components/Card/CardProduct";
 import axios from "axios";
 import { URL } from "../../App";
+import Loader from "../../components/Loader/Loader";
 
 function SearchResults() {
   const dispatch = useDispatch();
@@ -51,20 +52,23 @@ function SearchResults() {
   }, [dispatch, location.pathname, location.search, setWineListSearch]);
 
   return (
-    wineListSearch && (
-      <>
-        <img src={"/img/banners/smaller1.jpg"} alt="promo"></img>
-        <h3 className="SearchResults-title">
-          Showing results for <span>{keySearch}</span>
-        </h3>
-        <div className="SearchResults">
-          {wineListSearch.map((wine) => (
+    <>
+      <img src={"/img/banners/smaller1.jpg"} alt="promo"></img>
+      <h3 className="SearchResults-title">
+        Showing results for <span>{keySearch}</span>
+      </h3>
+      <div className="SearchResults">
+        {wineListSearch ? (
+          wineListSearch.map((wine) => (
             <CardProduct key={wine._id} wine={wine} />
-          ))}
-        </div>
-      </>
-    )
+          ))
+        ) : (
+          <Loader />
+        )}
+      </div>
+    </>
   );
+
   // return <div>Search Results</div>;
 }
 

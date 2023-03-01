@@ -16,6 +16,7 @@ import {
   selectWineDetails,
 } from "../../redux/productDetailsReducer";
 import { addToCart } from "./../../redux/cartReducer";
+import Loader from "../../components/Loader/Loader";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -79,11 +80,15 @@ function ProductDetails() {
   // =================== CART OPEN/CLOSE ===================
 
   // ======================= RETURN ========================
-  return (
+  return wine ? (
     <div className="ProductDetails">
       <div className="ProductDetails-image-block">
         <div className="ProductDetails-image-container">
-          <img className={`ProductDetails-image-${wine.category}`} src={wine.image} alt=""></img>
+          <img
+            className={`ProductDetails-image-${wine.category}`}
+            src={wine.image}
+            alt=""
+          ></img>
         </div>
       </div>
 
@@ -91,11 +96,11 @@ function ProductDetails() {
         <h2 className="ProductDetails-info-title">{wine.title}</h2>
         <div className="ProductDetails-info-review">
           <ListItemIcon>
-            <StarIcon sx={{color: "rgb(244, 244, 0)"}} />
-            <StarIcon sx={{color: "rgb(244, 244, 0)"}} />
-            <StarIcon sx={{color: "rgb(244, 244, 0)"}} />
-            <StarIcon sx={{color: "rgb(244, 244, 0)"}} />
-            <StarHalfIcon sx={{color: "rgb(244, 244, 0)"}} />
+            <StarIcon sx={{ color: "rgb(244, 244, 0)" }} />
+            <StarIcon sx={{ color: "rgb(244, 244, 0)" }} />
+            <StarIcon sx={{ color: "rgb(244, 244, 0)" }} />
+            <StarIcon sx={{ color: "rgb(244, 244, 0)" }} />
+            <StarHalfIcon sx={{ color: "rgb(244, 244, 0)" }} />
           </ListItemIcon>
           <p>Lorem ipsum dolor sit amet consectetur</p>
         </div>
@@ -103,15 +108,15 @@ function ProductDetails() {
         <div className="ProductDetails-ListItemIcon">
           <ListItemIcon>
             <div className="ProductDetails-ListItemIcon-item">
-              <WineBarIcon sx={{color: "rgb(139,0,0)"}} />
+              <WineBarIcon sx={{ color: "rgb(139,0,0)" }} />
               <p>Lorem ipsum dolor</p>
             </div>
             <div className="ProductDetails-ListItemIcon-item">
-              <LocationOnIcon sx={{color: "red"}}/>
+              <LocationOnIcon sx={{ color: "red" }} />
               <p>Lorem ipsum dolor</p>
             </div>
             <div className="ProductDetails-ListItemIcon-item">
-              <AcUnitIcon sx={{color: "lightskyblue"}} />
+              <AcUnitIcon sx={{ color: "lightskyblue" }} />
               <p>Lorem ipsum dolor</p>
             </div>
           </ListItemIcon>
@@ -167,6 +172,8 @@ function ProductDetails() {
         </div>
       </div>
     </div>
+  ) : (
+    <Loader />
   );
 }
 

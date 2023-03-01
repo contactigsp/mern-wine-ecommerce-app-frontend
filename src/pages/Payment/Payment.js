@@ -4,6 +4,7 @@ import { savePaymentMethod } from "../../redux/cartReducer";
 import "./Payment.css";
 import CheckoutSteps from "../../components/CheckoutSteps/CheckoutSteps";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../components/Loader/Loader";
 
 function Payment() {
   const navigate = useNavigate();
@@ -27,11 +28,12 @@ function Payment() {
   return (
     <>
       <CheckoutSteps step1 step2 step3 />
-      <form className="Payment" onSubmit={handleSubmit}>
-        <h2>Payment Method</h2>
-        <h3>Select Method</h3>
+      {shippingAddress ? (
+        <form className="Payment" onSubmit={handleSubmit}>
+          <h2>Payment Method</h2>
+          <h3>Select Method</h3>
 
-        {/* <div>
+          {/* <div>
           <input
             name="paymentMethod"
             id="Payment-optionOne"
@@ -43,21 +45,24 @@ function Payment() {
           <label htmlFor="Payment-optionOne">Paypal or Credit card</label>
         </div> */}
 
-        <div>
-          <input
-            name="paymentMethod"
-            id="Payment-optionTwo"
-            type="radio"
-            value="Stripe"
-            checked
-            onChange={(e) => setPaymentMethod(e.target.value)}
-          ></input>
-          <label htmlFor="Payment-optionTwo">Stripe</label>
-        </div>
+          <div>
+            <input
+              name="paymentMethod"
+              id="Payment-optionTwo"
+              type="radio"
+              value="Stripe"
+              checked
+              onChange={(e) => setPaymentMethod(e.target.value)}
+            ></input>
+            <label htmlFor="Payment-optionTwo">Stripe</label>
+          </div>
 
-        <button>Confirm</button>
-        {/* {error && <div className="error">{error}</div>} */}
-      </form>
+          <button>Confirm</button>
+          {/* {error && <div className="error">{error}</div>} */}
+        </form>
+      ) : (
+        <Loader />
+      )}
     </>
   );
 }

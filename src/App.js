@@ -13,7 +13,7 @@ import Payment from "./pages/Payment/Payment";
 import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
 import OrderDetails from "./pages/OrderDetails/OrderDetails";
 import SearchResults from "./pages/SearchResults/SearchResults";
-import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 export const URL = process.env.REACT_APP_SERVER_URL;
 // { URL }

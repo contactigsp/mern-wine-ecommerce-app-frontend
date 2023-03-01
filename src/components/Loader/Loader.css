@@ -1,17 +1,21 @@
+.Loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .Loader-panel {
   position: absolute;
   z-index: 100;
   background-color: #00000077;
-  color: #fff;
-  height: 200%;
+  /* color: #fff; */
+  /* height: 200%; */
   width: 100vw;
+  height: 200vh;
 }
 
-.Loading {
-    /* position: absolute; */
-  /* color: #fff; */
-  margin: 20.5rem 10%;
-  /* color: #a49c9c; */
-  /* color: #999; */
-  color: #000;
+.loading {
+  width: 8rem ;
+  position: absolute;
+  /* position: sticky; */
 }
