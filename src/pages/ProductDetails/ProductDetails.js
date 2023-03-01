@@ -35,20 +35,19 @@ function ProductDetails() {
   //   fetchWine();
   // }, []);
 
-  const dispatch = useDispatch();
-
-  const shouldRequest = useRef(true);
-
   const wine = useSelector(selectWineDetails);
-  const [newWineList, setNewWineList] = useState();
+
+  const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (shouldRequest.current) {
-      shouldRequest.current = false;
+    if(isLoading) {
       dispatch(getWineDetails(id));
-      setTimeout(() => setNewWineList(wine))
+      if (wine._id === id) {
+        setIsLoading(false);
+      }
     }
-  }, [dispatch, id, wine]);
+  }, [dispatch, id, isLoading, wine._id]);
 
   let counter = document.querySelector(".ProductDetails-quantity-counter");
 
@@ -83,7 +82,7 @@ function ProductDetails() {
   // =================== CART OPEN/CLOSE ===================
 
   // ======================= RETURN ========================
-  return newWineList ? (
+  return !isLoading ? (
     <div className="ProductDetails">
       <div className="ProductDetails-image-block">
         <div className="ProductDetails-image-container">

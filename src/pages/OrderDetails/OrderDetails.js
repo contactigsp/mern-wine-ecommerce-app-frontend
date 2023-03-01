@@ -35,17 +35,12 @@ function OrderDetails() {
     return { orderId: id, user };
   }, [id, user]);
 
-  // const shouldRequest = useRef(true); //this hook has a "current" property that persists it's value throughout the lifetime of the component. So, even on the "mount" and "unmount" it will retain it's value.
-
   const { isPaid } = selectOrderPay;
-  const shouldRequest = useRef(true); //this hook has a "current" property that persists it's value throughout the lifetime of the component. So, even on the "mount" and "unmount" it will retain it's value.
+
   useEffect(() => {
     if (user || isPaid || isSuccessPay) {
-      if (shouldRequest.current) {
       // if (shouldRequest.current) {
-        shouldRequest.current = false;
-        dispatch(getOrderDetails(orderInfo));
-      }
+      dispatch(getOrderDetails(orderInfo));
       setIsSuccessPay(false);
       // }
     }
@@ -104,7 +99,7 @@ function OrderDetails() {
 
   //   ========================== RETURN ==========================
 
-  return !shouldRequest.current ? (
+  return orderInfo ? (
     <>
       <div className="OrderDetails">
         <div className="OrderDetails-details">
