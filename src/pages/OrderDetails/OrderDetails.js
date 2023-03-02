@@ -40,7 +40,7 @@ function OrderDetails() {
   const { isPaid } = selectOrderPay;
 
   useEffect(() => {
-    if (user || isSuccessPay || isPaid || !isProcessingPayment) {
+    if (user || isSuccessPay || isPaid || isProcessingPayment) {
       dispatch(getOrderDetails(orderInfo));
       setIsSuccessPay(false);
     }
