@@ -164,11 +164,11 @@ function Navbar() {
             )}
           </ul>
           <ul>
-            <Link to={"/profile"} onClick={handleIsChecked}>
               <li>
+            <Link to={"/profile"} onClick={handleIsChecked}>
                 <PersonIcon />
-              </li>
             </Link>
+              </li>
             {/* <li>
               <FavoriteBorderIcon />
             </li> */}
