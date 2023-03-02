@@ -233,12 +233,12 @@ svg {
   }
 
   .show-Navbar-main-left {
-    top: 130px;
+    top: 170px;
     height: 100vh;
   }
 
   .show-Navbar-main-left-loggedIn {
-    top: 130px;
+    top: 170px;
     height: 100vh;
   }
 
@@ -250,7 +250,10 @@ svg {
   .Navbar-main-right ul li a,
   .Navbar-main-left ul li,
   .Navbar-main-left ul li a {
+    /* width: 100%; */
+    /* height: 100%; */
     color: #fff;
+    margin: .4rem 0;
   }
 
   .greetingForUser {
@@ -260,16 +263,15 @@ svg {
   .Navbar-dropDown-categories ul,
   .Navbar-dropDown-wines ul {
     left: 0;
+    margin: 0;
+    padding: 0;
   }
 
   .Navbar-dropDown-categories li,
   .Navbar-dropDown-wines li {
     border-top: none;
-    width: 100%;
+    /* width: 100%; */
+    /* height: 100%; */
   }
 
-  .Navbar-dropDown-categories li,
-  .Navbar-dropDown-wines li {
-    border-top: none;
-  }
 }

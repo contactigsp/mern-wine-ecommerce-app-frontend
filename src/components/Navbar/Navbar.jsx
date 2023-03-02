@@ -155,20 +155,26 @@ function Navbar() {
             ) : (
               <>
                 <Link to="/login" onClick={handleIsChecked}>
-                  <li>Login</li>
+                  <li>
+                    <p>Login</p>
+                  </li>
                 </Link>
                 <Link to="/signup" onClick={handleIsChecked}>
-                  <li>Sign up</li>
+                  <li>
+                    <p>Sign up</p>
+                  </li>
                 </Link>{" "}
               </>
             )}
           </ul>
           <ul>
-              <li>
-            <Link to={"/profile"} onClick={handleIsChecked}>
-                <PersonIcon />
-            </Link>
-              </li>
+            <li>
+              <Link to={"/profile"} onClick={handleIsChecked}>
+                <p>
+                  <PersonIcon />
+                </p>
+              </Link>
+            </li>
             {/* <li>
               <FavoriteBorderIcon />
             </li> */}
