@@ -238,12 +238,12 @@ svg {
   }
 
   .show-Navbar-main-left-loggedIn {
-    top: 110px;
+    top: 150px;
     height: 100vh;
   }
 
   .show-Navbar-main-right {
-    top: 25.7px;
+    top: 23px;
   }
 
   .Navbar-main-right ul li,
@@ -254,7 +254,7 @@ svg {
   }
 
   .greetingForUser {
-    display: none;
+    /* display: none; */
   }
 
   .Navbar-dropDown-categories ul,

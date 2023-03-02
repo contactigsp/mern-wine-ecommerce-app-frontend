@@ -35,14 +35,13 @@ function ProductDetails() {
   //   fetchWine();
   // }, []);
 
-  
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(getWineDetails(id));
     // }
   }, [dispatch, id]);
-  
+
   const wine = useSelector(selectWineDetails);
 
   // ===================== ADD TO CART =====================
@@ -120,7 +119,10 @@ function ProductDetails() {
           </ListItemIcon>
         </div>
 
-        <p className="ProductDetails-info-price">${wine.price}</p>
+        <div className="ProductDetails-priceInfo">
+          <p className="ProductDetails-info-oldPrice">${wine.oldPrice}</p>
+          <p className="ProductDetails-info-price">${wine.price}</p>
+        </div>
 
         <p className="ProductDetails-info-description">{wine.description}</p>
 

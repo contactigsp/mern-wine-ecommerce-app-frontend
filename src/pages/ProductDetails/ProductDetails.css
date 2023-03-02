@@ -158,10 +158,21 @@
   margin: 0 0.5rem;
 }
 
+.ProductDetails-priceInfo {
+  display: flex;
+}
+
 .ProductDetails-info-price {
   font-size: 2rem;
-  margin: 1rem;
+  margin: 1rem 0;
   color: #444;
+}
+
+.ProductDetails-info-oldPrice {
+  font-size: 1.5rem;
+  margin: 1rem;
+  text-decoration: line-through;
+  color: rgb(189, 189, 189);
 }
 
 .ProductDetails-info-review {
