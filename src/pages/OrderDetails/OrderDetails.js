@@ -78,9 +78,9 @@ function OrderDetails() {
     }
 
     if (response.ok) {
-      console.log(response.ok, "from response.ok");
-      console.log(response, "from response");
-      console.log(json, "from json");
+      // console.log(response.ok, "from response.ok");
+      // console.log(response, "from response");
+      // console.log(json, "from json");
       const paymentResult = {
         data: {
           receipt_url: json.charge.charge.receipt_url,

@@ -16,7 +16,7 @@ function Login() {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    console.log(redirect, "from handleSubmit");
+    // console.log(redirect, "from handleSubmit");
     e.preventDefault();
     await runLogin(email, password);
     // navigate("/")

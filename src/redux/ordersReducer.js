@@ -28,7 +28,7 @@ export const getOrderDetails = createAsyncThunk(
       // const thunkResult = orderDetails.orderDetails;
 
       // console.log(thunkResult, "from thunkAPI (OrderReducer.js)");
-      console.log(json, "from json (OrderReducer.js)");
+      // console.log(json, "from json (OrderReducer.js)");
 
       // return thunkResult._id === orderInfo.orderId ? thunkResult : json;
 

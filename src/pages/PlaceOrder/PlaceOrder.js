@@ -89,15 +89,15 @@ function PlaceOrder() {
         // dispatch(saveOrders(orderDetails));
 
         dispatch(resetCart());
-        console.log(json, "hello from PlaceOrder.js. json");
+        // console.log(json, "hello from PlaceOrder.js. json");
 
         navigate(`/orders/${json.order._id}`);
-        console.log(json);
+        // console.log(json);
       }
     } else {
-      console.log(cart.shippingAddress.address === null);
-      console.log(cart.paymentMethod === null);
-      console.log(cart.products.length !== 0);
+      // console.log(cart.shippingAddress.address === null);
+      // console.log(cart.paymentMethod === null);
+      // console.log(cart.products.length !== 0);
     }
   };
 

@@ -20,12 +20,12 @@ function SearchResults() {
     ? location.search.split("=")[1]
     : location.pathname.split("/")[2];
 
-  console.log(keySearch);
+  // console.log(keySearch);
   useEffect(() => {
     const keySearch = location.search.includes("=")
       ? location.search.split("=")[1]
       : location.pathname.split("/")[2];
-    console.log(keySearch);
+    // console.log(keySearch);
 
     // ==================== AXIOS ====================
     const fetchData = async () => {

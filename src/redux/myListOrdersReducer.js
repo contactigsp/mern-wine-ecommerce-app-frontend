@@ -16,7 +16,7 @@ export const getMyOrders = createAsyncThunk(
 
       const json = await response.json();
 
-      console.log(json, "from json (myOrdersReducer.js)");
+      // console.log(json, "from json (myOrdersReducer.js)");
       return json;
     } catch (error) {
       console.log(error);
