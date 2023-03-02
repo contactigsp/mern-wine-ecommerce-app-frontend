@@ -40,11 +40,11 @@ function OrderDetails() {
   const { isPaid } = selectOrderPay;
 
   useEffect(() => {
-    if (user || isSuccessPay || isPaid) {
+    if (user || isSuccessPay || isPaid || !isProcessingPayment) {
       dispatch(getOrderDetails(orderInfo));
       setIsSuccessPay(false);
     }
-  }, [dispatch, orderInfo, user, isSuccessPay, isPaid]);
+  }, [dispatch, orderInfo, user, isSuccessPay, isPaid, isProcessingPayment]);
 
   //   ========================== ADD DECIMAL ==========================
   const addDecimals = (num) => {
