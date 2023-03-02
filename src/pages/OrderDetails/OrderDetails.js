@@ -8,6 +8,7 @@ import { getOrderPay } from "../../redux/orderPayReducer";
 import Loader from "../../components/Loader/Loader";
 import StripeCheckout from "react-stripe-checkout";
 import { URL } from "../../App";
+import { selectOrderPay } from "../../redux/orderPayReducer"; 
 
 function OrderDetails() {
   const user = useSelector((state) => state.auth.user);
@@ -17,7 +18,7 @@ function OrderDetails() {
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
   const navigate = useNavigate();
-  
+
   const { id } = useParams();
 
   useEffect(() => {
@@ -36,14 +37,14 @@ function OrderDetails() {
     return { orderId: id, user };
   }, [id, user]);
 
-  // const { isPaid } = selectOrderPay;
+  const { isPaid } = selectOrderPay;
 
   useEffect(() => {
-    if (user || isSuccessPay) {
+    if (user || isSuccessPay || isPaid) {
       dispatch(getOrderDetails(orderInfo));
       setIsSuccessPay(false);
     }
-  }, [dispatch, orderInfo, user, isSuccessPay]);
+  }, [dispatch, orderInfo, user, isSuccessPay, isPaid]);
 
   //   ========================== ADD DECIMAL ==========================
   const addDecimals = (num) => {
