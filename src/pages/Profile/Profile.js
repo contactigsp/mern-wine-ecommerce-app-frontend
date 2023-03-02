@@ -23,7 +23,7 @@ function Profile() {
       if (shouldRequest.current) {
         shouldRequest.current = false;
         dispatch(getMyOrders(userInfo));
-        console.log(userInfo);
+        // console.log(userInfo);
       }
     } else {
       navigate(`/login?redirect=profile`); // Change this line navigateLog(redirect) inside that useEffect in LoginScreen to this one: "navigateLog(`/${redirect}`);      " In your case it's redirecting to /login/shipping instead of /shipping, cause it's like you are calling navigateLog("shipping") since redirect is equal to "shipping", so it's used as a relative path. Which means it takes into account your current url, which is in your case /login.
