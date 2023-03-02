@@ -44,6 +44,7 @@ function Cart() {
       dispatch(toggleIsOpen());
     } else {
       navigate(`/login?redirect=shipping`);
+      dispatch(toggleIsOpen());
     }
   };
 
