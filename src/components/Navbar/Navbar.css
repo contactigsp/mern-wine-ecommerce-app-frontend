@@ -36,7 +36,7 @@ li {
   background-color: rgb(77, 17, 17);
   display: flex;
   flex-direction: column;
-  z-index: 100;
+  /* z-index: 100; */
   padding: 0 1rem;
 }
 
@@ -103,7 +103,7 @@ li {
 }
 
 .Navbar-main li:not(.logo) {
-  padding: 10px;
+  padding: 7px;
 }
 
 .Navbar-main-left {
@@ -182,7 +182,7 @@ svg {
   .Navbar li:not(.logo):hover,
   .Navbar a:not(.logo):hover > * {
     color: #fff;
-    user-select: none;
+    /* user-select: none; */
   }
 
   .Navbar-main {
@@ -238,7 +238,7 @@ svg {
   }
 
   .show-Navbar-main-left-loggedIn {
-    top: 150px;
+    top: 130px;
     height: 100vh;
   }
 
