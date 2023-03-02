@@ -8,7 +8,7 @@ import { getOrderPay } from "../../redux/orderPayReducer";
 import Loader from "../../components/Loader/Loader";
 import StripeCheckout from "react-stripe-checkout";
 import { URL } from "../../App";
-import { selectOrderPay } from "../../redux/orderPayReducer"; 
+import { selectOrderPay } from "../../redux/orderPayReducer";
 
 function OrderDetails() {
   const user = useSelector((state) => state.auth.user);
@@ -95,8 +95,9 @@ function OrderDetails() {
 
       // updates the DB in MongoDB if Stripe pay is succeed
       dispatch(getOrderPay(paymentResult));
-      setIsSuccessPay(true);
-      setIsProcessingPayment(false);
+      ;
+      setTimeout(() => setIsProcessingPayment(false), 3000);
+      setTimeout(() => setIsSuccessPay(true), 4000);
     }
   };
 
