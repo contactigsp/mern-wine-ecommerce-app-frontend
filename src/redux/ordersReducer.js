@@ -44,7 +44,7 @@ const initialState = {
   orderDetails:
     window.localStorage["orderDetails"] !== undefined
       ? JSON.parse(window.localStorage.getItem("orderDetails"))
-      : null,
+      : [],
   isLoading: false,
   hasError: false,
   isSuccess: false,
