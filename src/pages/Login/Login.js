@@ -3,6 +3,7 @@ import "./Login.css";
 import { useLogin } from "../../hooks/useLogin";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Loader from "../../components/Loader/Loader";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -33,6 +34,7 @@ function Login() {
 
   return (
     <>
+      {isLoading && <Loader />}
       <form className="Login" onSubmit={handleSubmit}>
         <h3>Login</h3>
 

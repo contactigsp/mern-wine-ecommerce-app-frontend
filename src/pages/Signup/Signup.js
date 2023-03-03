@@ -5,13 +5,13 @@ import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 import ClearIcon from "@mui/icons-material/Clear";
+import Loader from "../../components/Loader/Loader";
 
 function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullname, setFullname] = useState("");
   const { signup, error, isLoading } = useSignup();
-
 
   // PASSWORD CHECK
   const [loUpCase, setLoUpCase] = useState(null);
@@ -71,80 +71,83 @@ function Signup() {
   }, [user, navigate, redirect]);
 
   return (
-    <form className="Signup" onSubmit={handleSubmit}>
-      <h3>Sign up</h3>
+    <>
+      {isLoading && <Loader />}
+      <form className="Signup" onSubmit={handleSubmit}>
+        <h3>Sign up</h3>
 
-      <label htmlFor="fullname">Full name</label>
-      <input
-        id="fullname"
-        type="fullname"
-        value={fullname}
-        onChange={(e) => setFullname(e.target.value)}
-      ></input>
+        <label htmlFor="fullname">Full name</label>
+        <input
+          id="fullname"
+          type="fullname"
+          value={fullname}
+          onChange={(e) => setFullname(e.target.value)}
+        ></input>
 
-      <label htmlFor="email">Email</label>
-      <input
-        id="email"
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      ></input>
+        <label htmlFor="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        ></input>
 
-      <label htmlFor="password">Password</label>
-      <input
-        id="password"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      ></input>
+        <label htmlFor="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        ></input>
 
-      <div className="Signup-checkbox">
-        <p>
-          <span>
-            {loUpCase ? (
-              <DoneAllIcon fontSize="small" sx={{ color: "green" }} />
-            ) : (
-              <ClearIcon fontSize="small" sx={{ color: "red" }} />
-            )}
-          </span>{" "}
-          Lowercase & Uppercase
-        </p>
-        <p>
-          <span>
-            {num ? (
-              <DoneAllIcon fontSize="small" sx={{ color: "green" }} />
-            ) : (
-              <ClearIcon fontSize="small" sx={{ color: "red" }} />
-            )}
-          </span>{" "}
-          Number (0-9)
-        </p>
-        <p>
-          <span>
-            {specialChar ? (
-              <DoneAllIcon fontSize="small" sx={{ color: "green" }} />
-            ) : (
-              <ClearIcon fontSize="small" sx={{ color: "red" }} />
-            )}
-          </span>{" "}
-          Special Character (!@#$%^&*)
-        </p>
-        <p>
-          <span>
-            {lengthChar ? (
-              <DoneAllIcon fontSize="small" sx={{ color: "green" }} />
-            ) : (
-              <ClearIcon fontSize="small" sx={{ color: "red" }} />
-            )}
-          </span>{" "}
-          At least 6 Characters
-        </p>
-      </div>
+        <div className="Signup-checkbox">
+          <p>
+            <span>
+              {loUpCase ? (
+                <DoneAllIcon fontSize="small" sx={{ color: "green" }} />
+              ) : (
+                <ClearIcon fontSize="small" sx={{ color: "red" }} />
+              )}
+            </span>{" "}
+            Lowercase & Uppercase
+          </p>
+          <p>
+            <span>
+              {num ? (
+                <DoneAllIcon fontSize="small" sx={{ color: "green" }} />
+              ) : (
+                <ClearIcon fontSize="small" sx={{ color: "red" }} />
+              )}
+            </span>{" "}
+            Number (0-9)
+          </p>
+          <p>
+            <span>
+              {specialChar ? (
+                <DoneAllIcon fontSize="small" sx={{ color: "green" }} />
+              ) : (
+                <ClearIcon fontSize="small" sx={{ color: "red" }} />
+              )}
+            </span>{" "}
+            Special Character (!@#$%^&*)
+          </p>
+          <p>
+            <span>
+              {lengthChar ? (
+                <DoneAllIcon fontSize="small" sx={{ color: "green" }} />
+              ) : (
+                <ClearIcon fontSize="small" sx={{ color: "red" }} />
+              )}
+            </span>{" "}
+            At least 6 Characters
+          </p>
+        </div>
 
-      <button disabled={isLoading}>Sign up</button>
-      {error && <div className="error">{error}</div>}
-      {/* <div className="error">Error</div> */}
-    </form>
+        <button disabled={isLoading}>Sign up</button>
+        {error && <div className="error">{error}</div>}
+        {/* <div className="error">Error</div> */}
+      </form>
+    </>
   );
 }
 
