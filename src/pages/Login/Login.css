@@ -59,8 +59,9 @@
 }
 
 @media only screen and (max-width: 583px) {
-  .Signup {
-    min-width: 15rem;
-    margin: 2rem 10%;
+  .Login {
+    /* margin: 2rem 30%; */
+    margin: 1rem 10%;
+    min-width: 2rem;
   } 
 }
