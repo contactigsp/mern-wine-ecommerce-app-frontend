@@ -50,6 +50,19 @@ function PlaceOrder() {
     if (!user) {
       navigate("/login?redirect=placeorder");
     }
+
+    if (!cart.shippingAddress.address) {
+      setError(
+        "Please, click in Shipping step above and fill out the shipping form first."
+      );
+    }
+
+    if (!cart.paymentMethod) {
+      setError(
+        "Please, click in Payment step above and confirm your payment method first."
+      );
+    }
+
     if (
       cart.shippingAddress.address &&
       cart.paymentMethod &&
@@ -188,7 +201,14 @@ function PlaceOrder() {
             <button type="button" onClick={handlePlaceOrder}>
               Place Order
             </button>
-            {error && <h2>{error}</h2>}
+            {error && (
+              <>
+                <p style={{ color: "red" }}>{error.slice(0, 40)}</p>
+                <p style={{ color: "red" }}>
+                  {error.length > 40 && error.slice(40, error.length)}
+                </p>
+              </>
+            )}
           </div>
         </div>
       </div>

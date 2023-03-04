@@ -67,7 +67,23 @@ function Profile() {
 
   const rows = myOrders;
 
-  return userInfo ? (
+  return myOrders[0] && userInfo ? (
+    userInfo._id === myOrders[0].user ? (
+      <div style={{ height: 500, width: "100%" }}>
+        <DataGrid
+          rows={rows}
+          getRowId={(row) => row._id}
+          columns={columns}
+          pageSize={10}
+          rowsPerPageOptions={[10]}
+          // checkboxSelection
+          sx={{ m: "2rem" }}
+        />
+      </div>
+    ) : (
+      <Loader />
+    )
+  ) : userInfo ? (
     <div style={{ height: 500, width: "100%" }}>
       <DataGrid
         rows={rows}
