@@ -203,7 +203,9 @@ function PlaceOrder() {
             </button>
             {error && (
               <>
-                <p style={{ color: "red" }}>{error.slice(0, 40)}</p>
+                <p style={{ color: "red" }}>
+                  {error.length > 40 ? error.slice(0, 40) : error}
+                </p>
                 <p style={{ color: "red" }}>
                   {error.length > 40 && error.slice(40, error.length)}
                 </p>
