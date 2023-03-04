@@ -26,13 +26,13 @@ function Home() {
 
   const dispatch = useDispatch();
 
-  const shouldRequest = useRef(true); //this hook has a "current" property that persists it's value throughout the lifetime of the component. So, even on the "mount" and "unmount" it will retain it's value.
+  //const shouldRequest = useRef(true); //this hook has a "current" property that persists it's value throughout the lifetime of the component. So, even on the "mount" and "unmount" it will retain it's value.
 
   useEffect(() => {
-    if (shouldRequest.current) {
-      shouldRequest.current = false;
+    //if (shouldRequest.current) {
+      //shouldRequest.current = false;
       dispatch(getWineList());
-    }
+    //}
   }, [dispatch]);
 
   const wineList = useSelector(selectWineList);
