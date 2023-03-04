@@ -17,5 +17,5 @@ export default configureStore({
     orderPay: orderPayReducer,
     myOrders: myListOrdersReducer,
   },
-  devTools: true,
+  devTools: false,
 });
