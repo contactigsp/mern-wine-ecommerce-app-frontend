@@ -13,6 +13,7 @@ import { selectOrderPay } from "../../redux/orderPayReducer";
 function OrderDetails() {
   const user = useSelector((state) => state.auth.user);
   const order = useSelector(selectOrderDetails);
+  const myOrders = useSelector((state) => state.myOrders.myOrders);
 
   const [isSuccessPay, setIsSuccessPay] = useState(false);
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
@@ -27,11 +28,11 @@ function OrderDetails() {
     }
 
     if (user) {
-      if (user._id !== order.user) {
+      if (myOrders.find((myOrder) => myOrder._id === id) === undefined) {
         navigate(`/login?redirect=profile`);
       }
     }
-  }, [user, navigate, id, order.user]);
+  }, [user, navigate, id, myOrders]);
 
   //   ==================== GET ORDER DETAILS FROM REDUCER ===================
 

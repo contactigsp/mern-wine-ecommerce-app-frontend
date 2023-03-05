@@ -2,6 +2,7 @@ import { useState } from "react";
 import { login } from "../redux/authReducer";
 import { useDispatch } from "react-redux";
 import { URL } from "../App";
+import { getMyOrders } from "../redux/myListOrdersReducer";
 
 export const useLogin = () => {
   const [error, setError] = useState(null);
@@ -24,6 +25,7 @@ export const useLogin = () => {
       setError(json.message);
     }
     if (response.ok) {
+      dispatch(getMyOrders(json.data));
 
       // save the user to local storage
       localStorage.setItem("user", JSON.stringify(json.data));
